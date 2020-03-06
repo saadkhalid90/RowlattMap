@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trying Historic map with D3</title>
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+    <style media="screen">
+      body {
+        margin: 0px;
+      }
+      div.wholeContain {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+      }
+      div.sideBar {
+        width: 6%;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+      }
+      div.dateMenu {
+        width: 85%;
+        height: 100vh;
+        background-color: #103127;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      div.sideBarSep {
+        width: 15%;
+        height: 100vh;
+        background-color: #505050;
+      }
+
+      div.dateMenu p{
+        color: white;
+        font-family: 'DM Serif Display';
+        font-size: 14px;
+        margin: 7px;
+        cursor: pointer;
+        position: relative;
+      }
+
+      div.descContain {
+        width: 30%;
+        height: 100vh;
+        background-color: white;
+      }
+
+      div.dateContain {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        top: 40px;
+        left: calc(36% - 90px/2);
+        border-radius: 50%;
+        background-color: #103127;
+        border-style: solid;
+        border-color: white;
+        border-width: 3px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      div.mapContain {
+        position: relative;
+        overflow: hidden;
+        width: 64%;
+        height: 100vh;
+      }
+      .zoomable {
+        /* transform: translate(-60px, 0px); */
+        transform: scale(1.05) translate(-0px, -120px);
+      }
+      svg.mapLocs {
+        position: absolute;
+        top: 0px;
+        z-index: 1;
+
+      }
+      img.mapBG {
+        z-index: 0;
+      }
+      img.lumsLogo {
+        position: absolute;
+        bottom: 8px;
+      }
+      p.date {
+        color: #FFEB3B;
+        font-family: 'DM Serif Display';
+        margin: 2px;
+      }
+      p.date.month {
+        font-size: 24px;
+      }
+      p.date.day {
+        font-size: 18px;
+      }
+      p.dateP.hovered {
+        color: yellow;
+      }
+      p.dateP.clicked {
+        color: yellow;
+      }
+      .centered {
+        position: absolute;
+        top: calc(50% - 10px);
+        left: calc(50% - 10px);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: orange;
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wholeContain">
+      <div class="sideBar">
+        <div class="dateMenu">
+          <div class="March9Div dateDiv">
+            <p class="dateP">March 9</p>
+          </div>
+          <div class="April6Div dateDiv">
+            <p class="dateP">April 6</p>
+          </div>
+          <div class="April10Div dateDiv">
+            <p class="dateP">April 10</p>
+          </div>
+          <div class="April11Div dateDiv">
+            <p class="dateP">April 11</p>
+          </div>
+          <div class="April12Div dateDiv">
+            <p class="dateP">April 12</p>
+          </div>
+          <div class="April14Div dateDiv">
+            <p class="dateP">April 14</p>
+          </div>
+          <div class="April17Div dateDiv">
+            <p class="dateP">April 17</p>
+          </div>
+          <div class="April18Div dateDiv">
+            <p class="dateP">April 18</p>
+          </div>
+          <div class="May20Div dateDiv">
+            <p class="dateP">May 20</p>
+          </div>
+          <img class="lumsLogo" src="lums.png" width="60px">
+        </div>
+        <div class="sideBarSep">
+        </div>
+      </div>
+      <div class="dateContain">
+        <p class="date month">
+          March
+        </p>
+        <p class="date day">
+          9
+        </p>
+      </div>
+      <div class="descContain">
+      </div>
+      <div class="mapContain">
+        <div class='centered'></div>
+        <svg class ="mapLocs zoomable" width = "934px" height = "1134px"></svg>
+        <img class = "mapBG zoomable" src="Lahore_1919_cropped_resized2.jpg", width="934px">
+        <script type="text/javascript" src = "index.js">
+        </script>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+<!DOCTYPE html>
